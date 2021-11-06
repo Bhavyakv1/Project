@@ -1,0 +1,48 @@
+package Project;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Orderproductdb {
+	public void dis() { 
+		try { 
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Hcldb","root","Asuba777*"); 
+		Statement stmt=con.createStatement(); 
+		Scanner sc=new Scanner(System.in); 
+		System.out.println("\n"); 
+		System.out.println("Product Name:"); 
+		String name=sc.next(); 
+		String irs="Select prod_name,f_price,size from product_cloth WHERE prod_name='" + name +"'"; 
+		ResultSet rs=stmt.executeQuery(irs);
+		while(rs.next()) { 
+		System.out.println("***** Product selected is displayed below ******"); 
+		System.out.println("Product Name: "+rs.getString(1)+"\n"+"Final Price: "+rs.getInt(2)+"\n"+"Size: "+rs.getString(3)); 
+		} 
+		con.close(); 
+		}catch(Exception e) { 
+		System.out.println(e); 
+		} 
+		} 
+		public void dis1() { 
+		try { 
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Hcldb","root","Asuba777*"); 
+		Statement stmt=con.createStatement(); 
+		Scanner sc=new Scanner(System.in);
+		System.out.println("\n"); 
+		System.out.println("Product Name:");
+		String name=sc.next(); 
+		String irs="Select prod_name,f_price,dosage from prod_medi WHERE prod_name='" + name +"'"; 
+		ResultSet rs=stmt.executeQuery(irs); 
+		while(rs.next()) { 
+		System.out.println("***** Product selected is displayed below ******"); 
+		System.out.println("Product Name: "+rs.getString(1)+"\n"+"Final Price: "+rs.getInt(2)+"\n"+"Dosage: "+rs.getString(3)); 
+		} 
+		con.close(); 
+		}catch(Exception e) { 
+		System.out.println(e); 
+		} 
+		} 
+}
