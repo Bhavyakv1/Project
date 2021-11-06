@@ -1,0 +1,105 @@
+package Project;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Medicinedb {
+	Medicinedb(){}
+	public void display() { 
+	try { 
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Hcldb","root","Asuba777*"); 
+	//System.out.println("Connection gets started"); 
+	Statement stmt=con.createStatement(); 
+	ResultSet rs=stmt.executeQuery("select * from prod_medi"); 
+	while(rs.next())
+	System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getInt(3)+" "+rs.getInt(4)+" "+rs.getInt(5)+" "+rs.getString(6)); 
+	con.close(); 
+	}catch(Exception e) { 
+	System.out.println(e); 
+	} 
+	}
+	public void add() { 
+	try { 
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Hcldb","root","Asuba777*"); 
+	//System.out.println("Connection gets started"); 
+	Scanner sc=new Scanner(System.in); 
+	System.out.println("Sub-category:"); 
+	String a=sc.next(); 
+	System.out.println("Product Name:"); 
+	String b=sc.next(); 
+	System.out.println("Price"); 
+	int c=sc.nextInt(); 
+	System.out.println("Discount"); 
+	int d=sc.nextInt(); 
+	System.out.println("Final price"); 
+	int e=sc.nextInt(); 
+	System.out.println("Dosage"); 
+	String f=sc.next(); 
+	//System.out.println("Size"); 
+	//String g=sc.next(); 
+	String irs="insert into prod_medi(sub_cat_name,prod_name,price,discount,f_price,dosage)values (?,?,?,?,?,?)"; 
+	PreparedStatement stmt=con.prepareStatement(irs); 
+	stmt.setString(1, a); 
+	stmt.setString(2, b); 
+	stmt.setInt(3, c); 
+	stmt.setInt(4, d); 
+	stmt.setInt(5, e); 
+	stmt.setString(6, f);
+	int r=stmt.executeUpdate(); 
+	//ResultSet rs=stmt.executeQuery("select * from prod_medi"); 
+	//while(rs.next()) 
+//		System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getInt(3)+" "+rs.getInt(4)+" "+rs.getInt(5)+" "+rs.getString(6)); 
+	if(r>0) { 
+	System.out.println("Data is inserted successfully"); 
+	} 
+	con.close(); 
+	}catch(Exception e) { 
+	System.out.println(e); 
+	} 
+	}
+	public void update(){ 
+	try { 
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Hcldb","root","Asuba777*"); 
+	//System.out.println("Connection gets started"); 
+	Scanner sc=new Scanner(System.in); 
+	System.out.println("Dosage:"); 
+	String a=sc.next(); 
+	System.out.println("Product name:"); 
+	String b=sc.next(); 
+	String irs="update prod_medi set dosage=? where prod_name=?;"; 
+	PreparedStatement stmt=con.prepareStatement(irs); 
+	stmt.setString(1, a); 
+	stmt.setString(2, b); 
+	int r=stmt.executeUpdate(); 
+	if(r>0) { 
+	System.out.println("Data is Updated success"); 
+	} 
+	con.close();
+	}catch(Exception e) { 
+	System.out.println(e); 
+	} 
+	}
+	public void delete() { 
+	try { 
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Hcldb","root","Asuba777*"); 
+	//System.out.println("Connection gets started"); 
+	Scanner sc=new Scanner(System.in); 
+	System.out.println("Product name:"); 
+	String a=sc.next(); 
+	String irs="delete from prod_medi where prod_name=?;"; 
+	PreparedStatement stmt=con.prepareStatement(irs); 
+	stmt.setString(1, a); 
+	int r=stmt.executeUpdate(); 
+	if(r>0) { 
+	System.out.println("Data is Deleted success"); 
+	}
+	con.close(); 
+	}catch(Exception e) { 
+	System.out.println(e); 
+	} 
+	} 
+}
