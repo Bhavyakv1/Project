@@ -1,0 +1,118 @@
+package Project;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Customer {
+	int id;  
+	String name,address,phone_no;  
+	static int a;  
+	static String b,c,d;  
+	Customer(){  
+	System.out.println("Customer Details");  
+	}  
+	Customer(int a,String b,String c,String d){  
+	id=a;  
+	name=b;  
+	address=c;  
+	phone_no=d;  
+	}  
+	public int getId() {  
+	return id;  
+	}  
+	public void setId(int id) {  
+	this.id = id;  
+	}  
+	public String getPhone_no() {  
+	return phone_no;  
+	}  
+	public void setPhone_no(String phone_no) {  
+	this.phone_no = phone_no;  
+	}  
+	public String getName() {  
+	return name;  
+	}  
+	public void setName(String name) {  
+	this.name = name;  
+	}  
+	public String getAddress() {  
+	return address;  
+	}  
+	public void setAddress(String address) {  
+	this.address = address;  
+	}  
+	public void addDetails() {  
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Id:");  
+	 a=sc.nextInt();  
+	System.out.println("Name:");  
+	 b=sc.next();  
+	System.out.println("Address:");  
+	 c=sc.next();  
+	System.out.println("Phone number:");  
+	 d=sc.next();  
+	Customer g=new Customer(a,b,c,d);  
+	g.setId(a);  
+	g.setName(b);  
+	g.setAddress(c);  
+	g.setPhone_no(d);  
+	try {  
+	FileWriter output=new FileWriter("C:\\\\Users\\\\suba\\\\eclipse-workspace\\\\HCL\\custdet.txt",true);  
+	output.append("\n");  
+	output.write(a+" "+b+" "+c+" "+d);  
+	//System.out.println("Customer details are added");  
+	output.close();} 
+	catch(IOException e){e.printStackTrace();}  
+	}  
+	public void display() {  
+	try{  
+	File input=new File("C:\\\\Users\\\\suba\\\\eclipse-workspace\\\\HCL\\custdet.txt");  
+	Scanner b1=new Scanner(input);  
+	while(b1.hasNextLine()) {  
+	//System.out.println("data readed"); 
+	break;  
+	}  
+	b1.close();}  
+	catch(FileNotFoundException d) {  
+	d.printStackTrace();  
+	}  
+	System.out.println("Customer id:"+a);;  
+	System.out.println("Customer name:"+b);  
+	System.out.println("Customer address:"+c);  
+	System.out.println("Customer phone number:"+d);  
+	}  
+	public void info1() { 
+	try{  
+	File input=new File("C:\\\\Users\\\\suba\\\\eclipse-workspace\\\\HCL\\custdet.txt");  
+	Scanner b1=new Scanner(input);  
+	while(b1.hasNextLine()) {  
+	//System.out.println("data readed");  
+	break; 
+	}  
+	b1.close();}  
+	catch(FileNotFoundException d) {  
+	d.printStackTrace();  
+	}  
+	System.out.println("Customer id:"+a); 
+	System.out.println("Customer phone no:"+d); 
+	}  
+	public void info() { 
+	// TODO Auto-generated method stub 
+
+	try{  
+	File input=new File("C:\\\\Users\\\\suba\\\\eclipse-workspace\\\\HCL\\custdet.txt");  
+	Scanner b1=new Scanner(input);  
+	while(b1.hasNextLine()) {  
+	//System.out.println("data readed");  
+	break;  
+	}  
+	b1.close();}  
+	catch(FileNotFoundException d) {  
+	d.printStackTrace();  
+	}  
+	System.out.println("Customer id:"+a);;  
+	}  
+	} 
