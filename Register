@@ -1,0 +1,45 @@
+package Project;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Register {
+	public void Register() {  
+		/*try {  
+		File f=new File("C:\\Users\\daphne.auxiliae\\eclipse-workspace\\hcl\\src\\Project\\file.txt");  
+		if(f.createNewFile()) {  
+		System.out.println("File created");  
+		}*/  
+		//else {  
+		//System.out.println("File exists");  
+		Scanner sc=new Scanner(System.in);  
+		String username,password;  
+		System.out.println("Enter the username:");  
+		username=sc.nextLine();  
+		System.out.println("Enter the password:");  
+		password=sc.nextLine();  
+		try {  
+		FileWriter output=new FileWriter("C:\\Users\\suba\\eclipse-workspace\\HCL\\registerfile.txt",true);  
+		output.append("\n");  
+		output.write(username+" "+password);  
+		System.out.println("Customer Details are added");  
+		output.close();  
+		try{  
+		File input=new File("C:\\Users\\suba\\eclipse-workspace\\HCL\\registerfile.txt");  
+		Scanner b=new Scanner(input);  
+		while(b.hasNextLine()) {  
+		//System.out.println("data readed");
+		break; 
+		}  
+		b.close();}  
+		catch(FileNotFoundException d) {  
+		d.printStackTrace();  
+		}  
+		}  
+		catch(IOException ae) {  
+		System.out.println("Not wriiten");  
+		} 
+		} } 
