@@ -1,0 +1,58 @@
+package Project;
+
+import java.util.Scanner;
+
+public class Credit implements Payment {
+	Scanner sc=new Scanner(System.in);  
+	Integer customer_id;  
+	String expiry_date;  
+	Integer card_no;  
+	Integer cvv;  
+	Credit(){}  
+	Credit(Integer card_no,String expiry_date,Integer cvv)  
+	{  
+	//this.customer_id=customer_id;  
+	this.expiry_date=expiry_date;  
+	this.card_no=card_no; 
+	this.cvv=cvv;  
+	}  
+	/*public Integer getCustomer_id() {  
+	return customer_id;  
+	}  
+	public void setCustomer_id(Integer customer_id) {  
+	this.customer_id = customer_id;  
+	} */ 
+	public String getExpiry_date() {  
+	return expiry_date;  
+	}  
+	public void setExpiry_date(String expiry_date) {  
+	this.expiry_date = expiry_date;  
+	}  
+	public Integer getCard_no() {  
+	return card_no;  
+	}  
+	public void setCard_no(Integer card_no) {  
+	this.card_no = card_no;  
+	}  
+	public Integer getCvv() {  
+	return cvv;  
+	}  
+	public void setCvv(Integer cvv) {  
+	this.cvv = cvv;  
+	} 
+	public void pay() {  
+	System.out.println("Credit/Debit Card Details");  
+	Customer o=new Customer();
+	o.info(); 
+	System.out.println("Enter the Card Number");  
+	int j=sc.nextInt();  
+	System.out.println("Enter the Card Expiry Date");  
+	String k=sc.next();  
+	System.out.println("Enter the CVV");  
+	int l=sc.nextInt();  
+	Credit cc =new Credit(j,k,l );  
+	//cc.display();  
+	System.out.println("Your entries are added and payment is Successfull");  
+	System.out.println("Your Product will be Reached soon ");  
+	} 
+}
