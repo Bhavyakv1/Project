@@ -1,0 +1,23 @@
+package Project;
+
+import java.util.Scanner;
+
+public class Gpay implements Payment{
+	Scanner sc=new Scanner(System.in);  
+	Integer customer_id;  
+	Integer phone_no;  
+	Gpay(){}  
+	Gpay(Integer customer_id,Integer phone_no){  
+	this.customer_id=customer_id;  
+	this.phone_no=phone_no; 
+	}  
+	public void pay() {  
+	System.out.println("Gpay/PhonePay");  
+	Customer o=new Customer(); 
+	o.info1(); 
+	Gpay g=new Gpay();  
+	//g.display();  
+	System.out.println("Your entries are added and payment is Successfull");  
+	System.out.println("Your Product will be Reached soon ");  
+	}  
+}
