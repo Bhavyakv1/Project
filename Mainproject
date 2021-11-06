@@ -1,0 +1,170 @@
+package Project;
+
+import java.util.Scanner;
+
+public class Mainproject {
+	
+	public static void main(String[] args) throws Exception {  
+		Scanner sc=new Scanner(System.in);  
+		//int a,d; 
+		//String b,c;  
+		boolean flag=true;  
+		while(flag){  
+		System.out.println("\n ********** WELCOME TO ONLINE SHOPPING ********** \n"); 
+		System.out.println("1)Registeration");  
+		System.out.println("2)Login");
+//			System.out.println("3)Guest");  
+		System.out.println("3)Admin");  
+		System.out.println("4)View Profile");  
+		System.out.println("5)Exit"); 
+		int no=sc.nextInt();  
+		switch(no) {  
+		case 1:  
+		Customer f=new Customer();  
+		//Customer g=new Customer();  
+		f.addDetails();  
+		Register reg=new Register();  
+		reg.Register();  
+		break;
+		case 2:  
+		Login lo=new Login();  
+		lo.Log();  
+		Clothesdb v=new Clothesdb(); 
+		Medicinedb n=new Medicinedb();
+		System.out.println("##### 1- Clothes Products #####"); 
+		v.display();
+		System.out.println("\n");
+		System.out.println("##### 2- Medicine Products #####"); 
+		n.display(); 
+		System.out.println("Enter the choice"); 
+		int number=sc.nextInt(); 
+		if(number==1) { 
+			Orderproductdb b=new Orderproductdb(); 
+		b.dis(); 
+		} 
+		else if(number==2) { 
+		Orderproductdb b=new Orderproductdb(); 
+		b.dis1(); 
+		} 
+		else { 
+		System.out.println("Invalid chioice");
+		} 
+		/*System.out.println("If you want to continue type 1 or else type 2");
+		int num=sc.nextInt(); 
+		if(num==1) { 
+		Cust b=new Cust(); 
+		b.dis();
+		}
+		else { 
+		Cust b=new Cust(); 
+		b.dis1();
+		}*/ 
+		Scanner br = new Scanner(System.in);  
+		System.out.println("----------CHOOSE YOUR PAYMENT MODE----------");  
+		System.out.println("1) Debit/Credit Card");  
+		System.out.println("2) Gpay/PhonePay");  
+		System.out.println("3) Cash on Delivery ");  
+		int type = Integer.parseInt(br.nextLine());  
+		if(type==1)  
+		{  
+		Credit cc = new Credit();  
+		cc.pay(); 
+		//v.display(); 
+		System.out.println("***************** THANK YOU FOR ORDERING **************");  
+		}else if(type==2)  
+		{ 
+		Gpay gp=new Gpay();  
+		gp.pay();  
+		System.out.println("***************** THANK YOU FOR ORDERING **************");  
+		} 
+		else { 
+		Customer m=new Customer(); 
+		System.out.println("Check whether your details are correct or not"); 
+		m.display(); 
+		String input=sc.next(); 
+		if(input=="yes") { 
+		System.out.println("Your Products will be Reached soon........."); } 
+		else { 
+		System.out.println("Your shopping is not continuing......");
+		} 
+		System.out.println("************** THANK YOU FOR ORDERING ***************");  
+		} 
+		break; 
+		case 3:  
+		System.out.println("Enter the choice"); 
+		System.out.println("1.Clothes");
+		System.out.println("2.Medicines"); 
+		System.out.println("3.Exit"); 
+		int q=sc.nextInt(); 
+		switch(q) { 
+		case 1: 
+		System.out.println("1)Display"); 
+		System.out.println("2)Insert"); 
+		System.out.println("3)Delete");
+		System.out.println("4)Update");
+		int no1=sc.nextInt(); 
+		switch(no1) { 
+		case 1: 
+			Clothesdb v1=new Clothesdb(); 
+		v1.display(); 
+		break;
+		case 2:
+			Clothesdb p=new Clothesdb(); 
+		p.add(); 
+		break; 
+		case 3: 
+		Clothesdb b1=new Clothesdb(); 
+		b1.delete(); 
+		break; 
+		case 4: 
+		Clothesdb c=new Clothesdb(); 
+		c.update(); 
+		break; 
+		default: 
+		flag=true; 
+		System.out.println("u r exited"); 
+		} 
+		break;
+		case 2: 
+		System.out.println("1)Display"); 
+		System.out.println("2)Insert"); 
+		System.out.println("3)Delete"); 
+		System.out.println("4)Update"); 
+		int n1=sc.nextInt(); 
+		switch(n1) { 
+		case 1: 
+		Medicinedb v3=new Medicinedb(); 
+		v3.display(); 
+		break; 
+		case 2: 
+		   Medicinedb p=new Medicinedb(); 
+		   p.add(); 
+		   break; 
+		case 3: 
+		   Medicinedb b3=new Medicinedb(); 
+		   b3.delete(); 
+		   break; 
+		case 4: 
+		   Medicinedb c=new Medicinedb(); 
+		   c.update(); 
+		   break; 
+		   default: 
+		   flag=true; 
+		   System.out.println("u r exited"); 
+		}
+		case 3: 
+		   flag=false; 
+		   System.out.println("u r exited"); 
+		} 
+		break;  
+		case 4:  
+		    Customer g1=new Customer();  
+		    g1.display();  
+		    break;
+		case 5:  
+		   flag=false;  
+	       System.out.println("You are Exited");  
+		default:  
+		}}}
+
+}
