@@ -1,0 +1,25 @@
+package com.spring;
+import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+public class StallDAO {
+    
+	public ArrayList<Stall> stallList = new ArrayList<Stall>();
+	@Autowired
+	Stall stall;
+
+	public ArrayList<Stall> returnList(){
+
+	stall=new Stall("FS","Extolls about the free softwares","Manickam","9878906781");
+	stallList.add(stall);
+	stall=new Stall("Mobile Mela","Old mobile models and newer one in the market - Combo offer!",
+	"Mani","9878806781");
+	stallList.add(stall);
+	stall = new Stall("Behavioural Cognition",
+	"Extolls about the relationship between behaviour and cognition","Vinayak","9809906781");
+	stallList.add(stall);
+	return stallList;
+	}	
+}
