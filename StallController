@@ -1,0 +1,20 @@
+package com.spring;
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.AbstractController;
+
+public class StallController extends AbstractController{
+     @Autowired
+private StallDAO stallDAO;
+	protected ModelAndView handleRequestInternal(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
+		ModelAndView model;		
+		ArrayList<Stall> stallList = stallDAO.returnList();
+   ModelAndView model1 = new ModelAndView("home","stallList",stallList);
+return model1;
+	}
+}
