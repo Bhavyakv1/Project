@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Event Weekend</title>
 <style type="text/css">
-	 #grad1 {
-			height:50%
+     #grad1 {
+        	height:50%
             background: lightsteelblue;
             background: linear-gradient(lightsteelblue, lightskyblue);
         }
@@ -59,6 +59,7 @@
             border: 2px solid black;
             margin: 10px;
             align: center;
+            
             backgorund-color: lightblue;
 
         }
@@ -66,6 +67,7 @@
         text-align:left;
         padding: 10px;
             border: 2px solid black;
+            
             margin: 10px;
         }
 
@@ -80,41 +82,41 @@
         <table>
             <tr>
                 <td>
-                    <img src="${pageContext.request.contextPath}/resources/images/abcevents.png"  height="120" width="150" style="float:left"0>
+                    <img src="${pageContext.request.contextPath}/resources/images/abcevents.png"  
+                                height="120" width="150" style="float:left">
                 </td>
                 <td>
                     <span style="vertical-align: middle">
-                        <h1 style="font-family :Cambria, Cochsin, Georgia, Times, 'Times New Roman', serif">Enriching Entertainment</h3>
+                        <h1 style="font-family :Cambria, Cochsin, Georgia, Times, 'Times New Roman', 
+                                serif">Enriching Entertainment</h1>
                     </span>
                 </td>
             </tr>
-            </table> 
+            </table>
+            
+          
             </div>
-
-
-
-<div id="data">
-<h2>Stall Details</h2>
-<table border="2" id="tableDetails">
-<tr>
-<th align="center">Stall Name</th>
-<th align="center">Description</th>
-<th align="center">Stall Owner</th>
-<th align="center">Contact Number</th>
-</tr>
-<c:forEach items="${tableDetails }" var="tuple">
-<tr>
-<td align ="center" >${tuple.stallName}</td>
-<td align ="center" >${tuple.stallDetails}</td>
-<td align ="center" >${tuple.stallOwner}</td>
-<td align ="center" >${tuple.ownerContact}</td>
-</tr>
-</c:forEach>
-</table>
-
             <br><br>
             <center>
-           
+           <h2>Stall Details</h2>
+<table class=boxed>
+<tr>
+<th class=box>Stall Name</th><th  class=box>Description</th><th class=box>Stall Owner</th>
+<th class=box>Contact Number</th>
+
+</tr>
+<c:forEach var="stall" items="${stalls}">
+			<tr>
+				
+				<td class=box>${stall.stallName}</td>
+				<td class=box>${stall.stallDetails}</td>
+				<td class=box>${stall.stallOwner}</td>
+				<td class=box>${stall.ownerContact}</td>
+			
+
+			</tr>
+		</c:forEach>
+</table>
 			</center>
     	</body>
 
